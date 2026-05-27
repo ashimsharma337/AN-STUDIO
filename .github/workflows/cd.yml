@@ -7,7 +7,7 @@ on:
 
 env:
   REGISTRY: docker.io
-  IMAGE_NAME: your-dockerhub-username/nextjs-ecommerce
+  IMAGE_NAME: ashimsharma/nextjs-ecommerce
   DEPLOY_PATH: /opt/nextjs-ecommerce
 
 jobs:
@@ -46,6 +46,8 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
+          platforms: linux/amd64
+          provenance: false
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
